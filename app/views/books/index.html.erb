@@ -1,0 +1,32 @@
+<% if @book.errors.any? %>
+    Error!!
+    <ul>
+      <% @book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+    </ul>
+<% end %>
+
+<div>
+  <%= render 'users/show', user: @user %>
+  <%= render 'new', book: @book %>
+</div>
+<h1>Books</h1>
+<% @books.each do |book| %>
+<table>
+  <tr>
+    <th></th>
+    <th>Title</th>
+    <th>Opinion</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td><%= link_to user_path(book.user) do %><%= image_tag book.user.get_profile_image(63, 63) %><% end %><br>
+    <%= book.user.name %></td>
+    <td><%= link_to book_path(book.id) do %>
+    <%= book.title %>
+    <% end %></td>
+    <td><%= book.body %></td>
+  </tr>
+</table>
+<% end %>
