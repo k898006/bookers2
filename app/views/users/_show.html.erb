@@ -3,6 +3,11 @@
 <h3>name</h3>
 <%= user.name %>
 <h3>introduction</h3>
-<%= user.introduction %>
-<%= link_to "edit", edit_user_path(user.id) %>
+<%= user.introduction %><br>
+<div class="row">
+  <%= link_to edit_user_path(user.id), class: "btn btn-secondary form-control" do %>
+  <i class="fas fa-user-cog"></i>
+  <% end %>
+</div>
+
 

@@ -1,6 +1,6 @@
-<h1>Editing Book</h1>
+
 <% if @book.errors.any? %>
-    Error!!
+    error!!
     <ul>
       <% @book.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -8,12 +8,25 @@
     </ul>
 <% end %>
 
-<%= form_with model: @book do |f| %>
-<h4>Title</h4>
-<%= f.text_field :title %>
-<h4>Opinion</h4>
-<%= f.text_area :body %>
-<%= f.submit 'Update Book' %>
-<%= link_to 'Show', book_path(@book.id) %>
-<%= link_to 'Back', books_path %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-auto mx-auto">
+      <h1>Editing Book</h1>
+      <%= form_with model: @book do |f| %>
+      <div class="form-group">
+        <label for"book_titile">Title</label><br>
+        <%= f.text_field :title %>
+      </div>
+      <div class="form-group">
+        <label for"book_opinion">Opinion</label><br>
+        <%= f.text_area :body %>
+      </div>
+      <%= f.submit 'Update Book' %>
+      <div>
+      <%= link_to 'Show', book_path(@book.id) %>
+      <%= link_to 'Back', books_path %>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</class>
